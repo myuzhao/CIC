@@ -2,11 +2,12 @@
 %% Author: myuzhao@163.com
 clear
 close all
+N = 5; %CIC Cascade order
 f = 16000;
 fs = 48000;
 R = 64;
 fs_clock = R * fs;
-t_all = 0.5;%/1000;
+t_all = 3;%/1000;
 t = 1/fs:1/fs:t_all;
 data = sin(2*pi*f*t);
 data = data(:);
@@ -44,7 +45,6 @@ end
 % plot(t_pcm,data_pcm,'--r');
 
 %% 3. cic 
-N = 5; %3
 data_cic = cic(data_pdm,R,N);
 % sound(data_cic,fs)
 % audiowrite('cic_out.wav',data_cic,fs);

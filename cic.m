@@ -1,4 +1,4 @@
-function [data_cic] = cic(data_pdm,R,N)
+function [data_cic,tmp_all] = cic(data_pdm,R,N)
 %% Brief: Matlab cic code
 %% Author: myuzhao@163.com
     if nargin < 1
@@ -22,7 +22,6 @@ function [data_cic] = cic(data_pdm,R,N)
             intOut(j) = intOut(j) + tmp;
             tmp = intOut(j);
         end
-
         if mod(i,R) == 1  %%decimator
              tmp = intOut(N);
              for j = 1:N  %%comb
